@@ -7,8 +7,7 @@ metadata:
 spec:
   ports:
     - port: 80
-      protocol: TCP
-      targetPort: 80
+      nodePort: 30009
   selector:
     app: httpd
   type: NodePort
@@ -49,7 +48,7 @@ spec:
           name: httpd
         volumeMounts:
         - name: httpd-storage
-          mountPath: /var/www/html/
+          mountPath: /usr/local/apache2/htdocs/
       volumes:
       - name: httpd-storage
         persistentVolumeClaim:
